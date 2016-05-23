@@ -9,12 +9,14 @@ namespace Azure.IoTHub.Lite
     {
         private static readonly ILog Log = LogProvider.GetCurrentClassLogger();
 
+        private readonly int _ttl;
         private readonly string _resourceUri;
         private readonly Address _address;
         private readonly ConnectionFactory _connectionFactory;
 
-        public IoTHubConnection(string host, int port, bool varboseTrace = false)
+        public IoTHubConnection(string host, int port, int ttl = 60, bool varboseTrace = false)
         {
+            _ttl = ttl;
             Connection.DisableServerCertValidation = true;
 
             _resourceUri = $"{host}/devices/";
@@ -32,7 +34,7 @@ namespace Azure.IoTHub.Lite
         {
             var url = _resourceUri + deviceId;
             var connection = await _connectionFactory.CreateAsync(_address);
-            var hub = await IoTHubDevice.Connect(connection, url, deviceId, deviceKey);
+            var hub = await IoTHubDevice.Connect(connection, url, deviceId, deviceKey, _ttl);
             return hub;
         }
 

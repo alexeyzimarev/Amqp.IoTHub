@@ -19,29 +19,30 @@ namespace Azure.IoTHub.Lite
         private readonly Connection _connection;
         private readonly string _url;
         private readonly string _deviceKey;
-        public readonly string Id;
         private Session _session;
         private SenderLink _senderLink;
 
-        private readonly int _ttl = 2;
+        protected int Ttl { get; }
+        public string Id { get; }
 
         private readonly List<IObserver<Message>> _observers;
 
-        protected IoTHubDevice(Connection connection, string url, string deviceId, string deviceKey)
+        protected IoTHubDevice(Connection connection, string url, string deviceId, string deviceKey, int ttl)
         {
             _connection = connection;
             _url = url;
             _deviceKey = deviceKey;
             Id = deviceId;
+            Ttl = ttl;
 
             _connection.Closed += (sender, error) => Log.WarnFormat("Connection closed with error {error}", error);
 
             _observers = new List<IObserver<Message>>();
         }
 
-        public static async Task<IoTHubDevice> Connect(Connection connection, string url, string deviceId, string deviceKey)
+        public static async Task<IoTHubDevice> Connect(Connection connection, string url, string deviceId, string deviceKey, int ttl)
         {
-            var device = new IoTHubDevice(connection, url, deviceId, deviceKey);
+            var device = new IoTHubDevice(connection, url, deviceId, deviceKey, ttl);
             var connected = await device.Authenticate();
             if (connected) device.Open();
             return connected ? device : null;
@@ -91,14 +92,14 @@ namespace Azure.IoTHub.Lite
 
         private async Task<bool> Authenticate()
         {
-            Observable.Interval(TimeSpan.FromMinutes(_ttl))
+            Observable.Interval(TimeSpan.FromMinutes(Ttl))
                 .Subscribe(async _ => await PutCbsToken());
             return await PutCbsToken();
         }
 
         private async Task<bool> PutCbsToken()
         {
-            var token = GetSasToken(_deviceKey, _url, TimeSpan.FromMinutes(_ttl));
+            var token = GetSasToken(_deviceKey, _url, TimeSpan.FromMinutes(Ttl));
             return await PutCbsToken(_connection, token, _url);
         }
 
