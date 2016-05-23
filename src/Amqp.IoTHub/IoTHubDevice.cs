@@ -5,12 +5,10 @@ using System.Reactive.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
-using Amqp;
 using Amqp.Framing;
-using Amqp.Types;
-using Azure.IoTHub.Lite.Logging;
+using Amqp.IoTHub.Logging;
 
-namespace Azure.IoTHub.Lite
+namespace Amqp.IoTHub
 {
     public class IoTHubDevice : IDisposable, IObservable<Message>
     {

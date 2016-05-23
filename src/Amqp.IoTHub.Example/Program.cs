@@ -5,10 +5,9 @@ using System.Reactive.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Amqp;
-using global::Serilog;
+using Serilog;
 
-namespace Azure.IoTHub.Lite.Example
+namespace Amqp.IoTHub.Example
 {
     class Program
     {

@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Amqp;
-using Azure.IoTHub.Lite.Logging;
+using Amqp.IoTHub.Logging;
 
-namespace Azure.IoTHub.Lite
+namespace Amqp.IoTHub
 {
     public class IoTHubConnection
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Azure.IoTHub.Lite
+namespace Amqp.IoTHub
 {
     public class SessionClosedException : Exception
     {

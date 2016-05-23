@@ -8,9 +8,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{A24861
 		paket.dependencies = paket.dependencies
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Azure.IoTHub.Lite", "Azure.IoTHub.Lite\Azure.IoTHub.Lite.csproj", "{1D3C0735-5E4A-4119-A63D-11B1D63E265D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amqp.IoTHub", "Amqp.IoTHub\Amqp.IoTHub.csproj", "{1D3C0735-5E4A-4119-A63D-11B1D63E265D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Azure.IoTHub.Lite.Example", "Azure.IoTHub.Lite.Example\Azure.IoTHub.Lite.Example.csproj", "{931F93D1-1855-4195-8B27-1EAB125064A5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amqp.IoTHub.Example", "Amqp.IoTHub.Example\Amqp.IoTHub.Example.csproj", "{931F93D1-1855-4195-8B27-1EAB125064A5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

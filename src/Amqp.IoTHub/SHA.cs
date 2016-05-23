@@ -4,7 +4,7 @@
 
 using System;
 
-namespace Azure.IoTHub.Lite
+namespace Amqp.IoTHub
 {
     /// <summary>
     ///     Static class providing Secure Hashing Algorithm (SHA-1, SHA-224, SHA-256)

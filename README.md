@@ -1,4 +1,4 @@
-# Azure.IoTHub.Lite
+# Amqp.IoTHub
 Simple library to connect a device to Azure IoT Hub. Runs on Mono also.
 
 Check the console app to see how the library can be used.

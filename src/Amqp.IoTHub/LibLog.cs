@@ -43,14 +43,14 @@
 #if LIBLOG_PROVIDERS_ONLY
 namespace LibLog.Example.Library.LibLog
 #else
-namespace Azure.IoTHub.Lite.Logging
+namespace Amqp.IoTHub.Logging
 #endif
 {
     using System.Collections.Generic;
 #if LIBLOG_PROVIDERS_ONLY
     using LibLog.Example.Library.LibLog.LogProviders;
 #else
-    using Azure.IoTHub.Lite.Logging.LogProviders;
+    using Amqp.IoTHub.Logging.LogProviders;
 #endif
     using System;
 #if !LIBLOG_PROVIDERS_ONLY
@@ -714,7 +714,7 @@ namespace Azure.IoTHub.Lite.Logging
 #if LIBLOG_PROVIDERS_ONLY
 namespace LibLog.Example.Library.LibLog.LogProviders
 #else
-namespace Azure.IoTHub.Lite.Logging.LogProviders
+namespace Amqp.IoTHub.Logging.LogProviders
 #endif
 {
     using System;
